@@ -89,7 +89,7 @@ class Contents_Hog(Extract):
     def extract_features(self, filepath):
         im = Image.open(filepath).convert("RGB")
         image = np.asarray(im)
-        feature_vector = hog(image, orientations=8, pixels_per_cell=(2, 2), cells_per_block=(1, 1), channel_axis=-1, feature_vector=True)
+        feature_vector = hog(image, orientations=8, pixels_per_cell=(3, 3), cells_per_block=(1, 1), channel_axis=-1, feature_vector=True)
         return feature_vector
 
 

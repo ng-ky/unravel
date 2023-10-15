@@ -146,8 +146,8 @@ class Cluster():
             ax2.scatter(z[:, 0], z[:, 1], marker=".", s=30, lw=0, alpha=0.7, c=colors, edgecolor="k")
 
             ax2.set_title("tSNE projection for {i} clusters.".format(i=n_clusters))
-            ax2.set_xlabel("comp-1")
-            ax2.set_ylabel("comp-2")
+            ax2.set_xlabel("component-1")
+            ax2.set_ylabel("component-2")
             #ax2.legend()
 
             plt.suptitle(
@@ -160,14 +160,16 @@ class Cluster():
             plt.savefig(filename)
 
         # clear the current figure
-        plt. clf()
+        plt.clf()
 
         # plot the graph of silhouette scores
+        plt.figure(figsize=(5,5))
         plt.plot(k_range, scores)
         plt.title('Silhouette Score vs Number of Clusters')
         plt.xlabel("Number of clusters")
         plt.ylabel("Score")
         plt.xticks(np.arange(2, max_k, 1))
+#        plt.yticks([0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1])
         plt.grid()
         plt.savefig('{}-scores.jpg'.format(self.output))
 
